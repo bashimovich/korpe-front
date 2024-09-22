@@ -31,9 +31,9 @@ function MusicList() {
         <div class="bg-gradient-to-r from-green-400 to-blue-500">
             <div className="book_list">
                 <div className="container">
-                    <div className='pt-5'>
+                    {/* <div className='pt-5'>
                         <input className='w-full md:w-1/2 p-2 border-l-emerald-400 focus:outline-none text-xl rounded-3xl pl-5 pr-5' type="text" />
-                    </div>
+                    </div> */}
                     <div className='pt-10 grid gap-1 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 lg:gap-2'>
                         {
                             Audios.map((item)=>{return(
@@ -45,7 +45,7 @@ function MusicList() {
                                         </div>
                                         <div>
                                             <p className='text-2xl md:text-base text-white text-left'>{item.title_tm}</p>
-                                            <p className='text-white text-left'>{item.views} views - 3 days ago</p>
+                                            {/* <p className='text-white text-left'>{item.views} views - 3 days ago</p> */}
                                         </div>
                                     </div>
                                 </div>

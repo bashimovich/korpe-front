@@ -15,6 +15,16 @@ i18n
                     "teachers": "Teachers",
                     "babies": "Babies",
                     "search": "Search...",
+                    "videos": "Vidoes",
+                    "books": "Books",
+                    "blogs": "Blogs",
+                    "tales": "Tales",
+                    "musics": "Musics",
+                    "lessons": "Lessons",
+                    "view": "view",
+                    "name": "Name",
+                    "author": "Author",
+                    "read": "Read",
                 }
             },
             tm: {
@@ -24,6 +34,16 @@ i18n
                     "teachers": "Mugallymlar",
                     "babies": "Körpeler",
                     "search": "Gözleg...",
+                    "videos": "Wideolar",
+                    "books": "Kitaplar",
+                    "blogs": "Makalalar",
+                    "tales": "Ertekiler",
+                    "musics": "Aýdymlar",
+                    "lessons": "Dersler",
+                    "view": "görülen",
+                    "name": "Ady",
+                    "author": "Awtory",
+                    "read": "Oka",
                 }
             },
             ru: {
@@ -33,6 +53,16 @@ i18n
                     "teachers": "Учителя",
                     "babies": "Младенцы",
                     "search": "Поиск...",
+                    "videos": "Видео",
+                    "books": "Книга",
+                    "blogs": "Блоги",
+                    "tales": "Сказки",
+                    "musics": "Музыка",
+                    "lessons": "Урок",
+                    "view": "просмотръ",
+                    "name": "Имя",
+                    "author": "Автор",
+                    "read": "Читать",
                 }
             }
 

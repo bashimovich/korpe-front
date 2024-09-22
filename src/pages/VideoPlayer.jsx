@@ -6,8 +6,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { axiosInstance, BASE_DOMAIN } from '../utils/axiosInstance'
 import { formatDistanceToNow } from 'date-fns';
 import { truncateText, truncateBigText, SmalltruncateText } from '../utils/maxCharacter';
+import { useTranslation } from 'react-i18next'
 
 function VideoPlayer() {
+    const {t, i18n} = useTranslation()
     const timeAgo = (dateString) => {
         return formatDistanceToNow(new Date(dateString), { addSuffix: true });
     };
@@ -50,9 +52,9 @@ function VideoPlayer() {
         <div class="bg-gradient-to-r from-green-400 to-blue-500">
             <div className="video_list">
                 <div className="container">
-                    <div className='pt-5'>
+                    {/* <div className='pt-5'>
                         <input className='w-full md:w-1/2 p-2 border-l-emerald-400 focus:outline-none text-xl rounded-3xl pl-5 pr-5' type="text" />
-                    </div>
+                    </div> */}
                     <div className='pt-5 flex items-start flex-col lg:flex-row'>
                         <div class="h-auto w-full lg:w-11/12 p-0 md:pr-5">
                             <video src={currentVideo?.video} class="h-full w-full rounded-lg" controls autoPlay controlslist="nodownload">
@@ -68,7 +70,7 @@ function VideoPlayer() {
                                 </div>
                                 <div className='w-11/12'>
                                     <p className='text-white text-left'>{truncateBigText(currentVideo?.title_tm)}</p>
-                                    <p className='text-white text-left text-sm'>{currentVideo?.views} views - {timeAgo(currentVideo?.created_at)}</p>
+                                    <p className='text-white text-left text-sm'>{currentVideo?.views} {t('view')} - {timeAgo(currentVideo?.created_at)}</p>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +81,7 @@ function VideoPlayer() {
                                     <img src={BASE_DOMAIN + video.thumbnail} className='rounded-lg w-1/3 h-100 mr-2' alt="" />
                                     <div>
                                         <p className='text-left text-white'>{SmalltruncateText(video?.title_tm)}</p>
-                                        <p className='mt-2 text-left text-white text-sm'>{video.views} views - {timeAgo(video.created_at)}</p>
+                                        <p className='mt-2 text-left text-white text-sm'>{video.views} {t('view')} - {timeAgo(video.created_at)}</p>
                                     </div>
                                 </div>:''
                             )})}
@@ -96,7 +98,7 @@ function VideoPlayer() {
                                     </div>
                                     <div>
                                         <p className='text-white text-left'>{truncateText(video.title_tm)}</p>
-                                        <p className='text-white text-left'>{video.views} views - {timeAgo(video.created_at)}</p>
+                                        <p className='text-white text-left'>{video.views} {t('view')} - {timeAgo(video.created_at)}</p>
                                     </div>
                                 </div>
                             </div>:''

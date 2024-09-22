@@ -51,9 +51,8 @@ const MyRoutes = () => {
           {/* <Route path="/books/:id" element={<ReadBook />} /> */}
           {/* <Route path="/book/id" element={<ReadBook />} /> */}
 
-          <Route path="/kids/texts" element={<PoemsList />} />
-          {/* <Route path="/books/:id" element={<ReadBook />} /> */}
-          <Route path="/kids/text/id" element={<ReadText />} />
+          <Route path="/kids/blogs" element={<PoemsList />} />
+          <Route path="/kids/blogs/:key" element={<ReadText />} />
 
         </Routes>
       </Suspense>
