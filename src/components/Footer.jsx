@@ -1,7 +1,9 @@
 import React from 'react'
 import logo from './../assets/images/korpe-logo.png'
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+    const {t, i18n} = useTranslation()
   return (
     <>
         <div className="footer bg-green-400 top-box-shadow">
@@ -11,7 +13,9 @@ function Footer() {
                     <p className='p-0 m-0 ml-2 text-white font-bold text-xl'>Korpe</p>
                 </div>
                 <div>
-                    <p className='text-white text-sm md:text-lg'>Ahli Hukuklar goralan</p>
+                    <p className='text-white text-sm md:text-lg'>
+                         {t('copyright')}
+                    </p>
                 </div>
             </div>
         </div>

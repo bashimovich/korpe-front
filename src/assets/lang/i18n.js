@@ -25,6 +25,7 @@ i18n
                     "name": "Name",
                     "author": "Author",
                     "read": "Read",
+                    "copyright": "© 2024. All rights reserved.",
                 }
             },
             tm: {
@@ -44,6 +45,7 @@ i18n
                     "name": "Ady",
                     "author": "Awtory",
                     "read": "Oka",
+                    "copyright": "© 2024. Ähli hukuklar goralandyr.",
                 }
             },
             ru: {
@@ -63,6 +65,7 @@ i18n
                     "name": "Имя",
                     "author": "Автор",
                     "read": "Читать",
+                    "copyright": "© 2024. Все права защищены.",
                 }
             }
 
