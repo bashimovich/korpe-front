@@ -39,7 +39,12 @@ function VideoPlayer() {
           console.log(err);
         });
   }, [key])
-
+    if (!currentVideo) {
+        return <div>Loading...</div>;
+    }
+    if (!RandomVideo) {
+        return <div>Loading...</div>;
+    }
   return (
     <>
         <Navbar />
