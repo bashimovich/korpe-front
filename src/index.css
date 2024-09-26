@@ -85,3 +85,12 @@ code {
 audio {
     background-color: #f3f0f0 !important;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
