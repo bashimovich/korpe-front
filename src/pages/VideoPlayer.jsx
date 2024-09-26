@@ -45,6 +45,10 @@ function VideoPlayer() {
     if (!RandomVideo) {
         return <div>Loading...</div>;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ff1fa51f49b7ab644b86a3794b5eb17b1973ddc
   return (
     <>
         <Navbar />

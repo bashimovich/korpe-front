@@ -1,5 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ReadTeachers from '../pages/ReadTeachers';
+import Parents from '../pages/Parents';
+import ReadParents from '../pages/ReadParents';
 
 // Lazy load the components
 const Home = lazy(() => import('./../pages/Home'));
@@ -16,6 +19,8 @@ const MusicList = lazy(() => import('./../pages/MusicList'));
 
 const PoemsList = lazy(() => import('./../pages/PoemsList'));
 const ReadText = lazy(() => import('./../pages/ReadText'));
+const Teachers = lazy(() => import('./../pages/Teachers'));
+const About = lazy(() => import('./../pages/About'));
 
 const LoadingComponent = () => (
   <div style={{
@@ -38,7 +43,7 @@ const MyRoutes = () => {
       <Suspense fallback={<LoadingComponent />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/kids" element={<Home />} />
 
           <Route path="/kids/videos" element={<VideoList />} />
           {/* <Route path="/video/:id" element={<VideoPlayer />} /> */}
@@ -54,6 +59,13 @@ const MyRoutes = () => {
           <Route path="/kids/blogs" element={<PoemsList />} />
           <Route path="/kids/blogs/:key" element={<ReadText />} />
 
+          <Route path="/teachers" element={<Teachers />} />
+          <Route path="/teachers/:key" element={<ReadTeachers />} />
+
+          <Route path="/parents" element={<Parents />} />
+          <Route path="/parents/:key" element={<ReadParents />} />
+
+          <Route path="/about" element={<About />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

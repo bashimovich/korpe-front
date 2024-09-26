@@ -1,8 +1,14 @@
 import axios from "axios";
 // import { token } from "./token";
 
+<<<<<<< HEAD
 const BASE_URL = "https://gel.edu.tm:8000/api/v1/";
 const BASE_DOMAIN = "https://gel.edu.tm:8000/";
+=======
+const BASE_URL = "http://localhost:8000/api/v1/";
+// const BASE_URL = "https://gel.edu.tm:8000/api/v1/";
+const BASE_DOMAIN = "http://localhost:8000/";
+>>>>>>> 4ff1fa51f49b7ab644b86a3794b5eb17b1973ddc
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
