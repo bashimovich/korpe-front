@@ -12,7 +12,7 @@ i18n
                 translation: {
                     "parents": "Parents",
                     "aboutus": "About Us",
-                    "teachers": "Teachers",
+                    "teachers": "Educators",
                     "babies": "Babies",
                     "search": "Search...",
                     "videos": "Vidoes",
@@ -32,7 +32,7 @@ i18n
                 translation: {
                     "parents": "Ene-atalar",
                     "aboutus": "Biz Barada",
-                    "teachers": "Mugallymlar",
+                    "teachers": "Terbiýeçiler",
                     "babies": "Körpeler",
                     "search": "Gözleg...",
                     "videos": "Wideolar",
@@ -52,7 +52,7 @@ i18n
                 translation: {
                     "parents": "Родители",
                     "aboutus": "О Нас",
-                    "teachers": "Учителя",
+                    "teachers": "Педагоги",
                     "babies": "Младенцы",
                     "search": "Поиск...",
                     "videos": "Видео",
