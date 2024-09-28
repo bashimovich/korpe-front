@@ -33,7 +33,7 @@ const LoadingComponent = () => (
     right: '0',
     left: '0'
   }}>
-    <div>Locading....</div>
+    <div>Loading....</div>
   </div>
 );
 

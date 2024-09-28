@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 function Navbar() {
     const location = useLocation();
     const currentPath = location.pathname;
-    console.log(currentPath);
     
     const {t, i18n} = useTranslation()
     const navigate = useNavigate()

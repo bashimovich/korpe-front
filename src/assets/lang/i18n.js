@@ -21,7 +21,7 @@ i18n
                     "tales": "Tales",
                     "musics": "Musics",
                     "lessons": "Lessons",
-                    "view": "view",
+                    "view": "views",
                     "name": "Name",
                     "author": "Author",
                     "read": "Read",

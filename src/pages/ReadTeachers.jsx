@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { SmalltruncateText, truncateBigText, truncateText } from '../utils/maxCharacter';
 import i from './../assets/images/korpe-logo.png'
 import ii from './../assets/images/tomandjerry.jpg'
+import DOMPurify from 'dompurify';
 
 function ReadTeachers() {
     const {t, i18n} = useTranslation()
@@ -18,27 +19,17 @@ function ReadTeachers() {
     const [currentBlog, setcurrentBlog] = useState()
     const navigate = useNavigate()
     const [RandomVideo, setRandomVideo] = useState()
-    function gotowatch(key) {
-        navigate(`/kids/video/${key}`)
-    }
+
     useEffect(() => {
     window.scroll(0,0)
       axiosInstance
-        .get(`videos/${key}/`)
+        .get(`teachers/${key}/`)
         .then((res) => {
             setcurrentBlog(res.data)
         })
         .catch((err) => {
           console.log(err);
         });
-        axiosInstance
-            .get(`videos/`)
-            .then((res) => {
-                setRandomVideo(res?.data.results)
-            })
-            .catch((err) => {
-                console.log(err);
-            });
   }, [key])
     if (!currentBlog) {
         return <div>Loading...</div>;
@@ -46,7 +37,7 @@ function ReadTeachers() {
   return (
     <>
         <Navbar />
-        <div class="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500">
             <div className="video_list">
                 <div className="container">
                     {/* <div className='pt-5'>
@@ -55,38 +46,66 @@ function ReadTeachers() {
                     <div className='p-2 md:p-20 w-full md:w-[80%] m-auto'>
                         <div className='flex items-center justify-between pt-5 pb-5'>
                             <div className='flex justify-start items-center'>
-                                <img className='w-14 h-14 rounded-full mr-2' src={i} alt="" />
-                                <p className='text-white text-lg'>yagshy_ashyrov</p>
+                                <img className='w-14 h-14 rounded-full mr-2' src={currentBlog.channel.image} alt="" />
+                                <p className='text-white text-lg'>{currentBlog.channel.username}</p>
                             </div>
                             <div>
-                                <p className='text-left text-white text-sm'>10 views - 10 days ago</p>
+                                <p className='text-left text-white text-sm'>{currentBlog.views} {t('view')} - {timeAgo(currentBlog.created_at)}</p>
                             </div>
                         </div>
-                        <h1 className='text-left text-white text-3xl font-semibold mb-4 mt-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure, iste non! Nobis officiis nostrum repudiandae. Odit sunt nisi deleniti maxime?</h1>
+                        {/* <h1 className='text-left text-white text-3xl font-semibold mb-4 mt-4'>{currentBlog.title_tm}</h1> */}
+                            {i18n.language === 'ru' ? (
+
+                                        <h1  className='text-left text-white text-3xl font-semibold mb-4 mt-4' dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.title_ru),
+                                        }}></h1>
+                                        ):(
+                                            null
+                                        )}
+                                        {i18n.language === 'tm' ? (
+
+                                        <h1 className='text-left text-white text-3xl font-semibold mb-4 mt-4' dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.title_tm),
+                                        }}></h1>
+                                        ):(
+                                            null
+                                        )}
+                                        {i18n.language === 'en' ? (
+
+                                        <h1 className='text-left text-white text-3xl font-semibold mb-4 mt-4'  dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.title_en),
+                                        }}></h1>
+                                        ):(
+                                            null
+                                        )}
                         <img src={ii} className='w-full m-auto' alt="" />
-                        <p className='text-lg text-justify mt-4 text-white'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consequatur perferendis iure, accusamus molestiae earum, culpa corporis laborum asperiores tempore iusto cumque facere possimus id dolor sequi eum exercitationem expedita.
-                        </p>
+                            {i18n.language === 'ru' ? (
+
+                                        <p  className='text-lg text-justify mt-4 text-white' dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.content_ru),
+                                        }}></p>
+                                        ):(
+                                            null
+                                        )}
+                                        {i18n.language === 'tm' ? (
+
+                                        <p className='text-lg text-justify mt-4 text-white' dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.content_tm),
+                                        }}></p>
+                                        ):(
+                                            null
+                                        )}
+                                        {i18n.language === 'en' ? (
+
+                                        <p className='text-lg text-justify mt-4 text-white'  dangerouslySetInnerHTML={{
+                                            __html: DOMPurify.sanitize(currentBlog?.content_en),
+                                        }}></p>
+                                        ):(
+                                            null
+                                        )}
+                        {/* <p className='text-lg text-justify mt-4 text-white'>{currentBlog.content_tm}</p> */}
                     </div>
-                    <div className='border-t-2 pt-10 grid gap-1 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:gap-2'>
+                    {/* <div className='border-t-2 pt-10 grid gap-1 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:gap-2'>
                         <div className='w-full ease-in duration-300 hover:bg-green-300 hover:cursor-pointer p-3 rounded-xl'>
                             <img src={ii} className='w-full h-52 rounded-lg' alt="" />
                             <div className='flex p-3 items-start'>
@@ -135,7 +154,7 @@ function ReadTeachers() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
