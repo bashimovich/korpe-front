@@ -78,7 +78,7 @@ function ReadTeachers() {
                                         ):(
                                             null
                                         )}
-                        <img src={ii} className='w-full m-auto' alt="" />
+                        <img src={currentBlog.thumbnail} className='w-full m-auto' alt="" />
                             {i18n.language === 'ru' ? (
 
                                         <p  className='text-lg text-justify mt-4 text-white' dangerouslySetInnerHTML={{

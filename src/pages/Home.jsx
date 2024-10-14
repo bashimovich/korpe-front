@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <>
-    <div class="bg-gradient-to-r from-green-400 to-blue-500">
+    <div className="bg-gradient-to-r from-green-400 to-blue-500">
         <Navbar />
         <MainBanner />
         <Categories />

@@ -5,6 +5,7 @@ import { axiosInstance } from '../utils/axiosInstance';
 import { useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import { useTranslation } from 'react-i18next';
+import Footer from '../components/Footer';
 function ReadText() {
     const {t, i18n} = useTranslation()
     const { key } = useParams();  
@@ -26,7 +27,7 @@ function ReadText() {
   return (
     <>
         <Navbar />
-        <div className="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 min-h-[80vh]">
             <div className="video_list">
                 <div className="container">
                     <div className='p-0 md:p-5 flex flex-col items-center justify-center'>
@@ -66,6 +67,7 @@ function ReadText() {
                 </div>
             </div>
         </div>
+        <Footer />
     </>
   )
 }

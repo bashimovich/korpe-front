@@ -11,6 +11,9 @@ i18n
             en: {
                 translation: {
                     "parents": "Parents",
+                    "turkmen": "Turkmen",
+                    "english": "English",
+                    "rus": "Russian",
                     "aboutus": "About Us",
                     "teachers": "Educators",
                     "babies": "Babies",
@@ -19,17 +22,23 @@ i18n
                     "books": "Books",
                     "blogs": "Blogs",
                     "tales": "Tales",
-                    "musics": "Musics",
+                    "musics": "Audio recordings",
                     "lessons": "Lessons",
                     "view": "views",
                     "name": "Name",
                     "author": "Author",
                     "read": "Read",
                     "copyright": "© 2024. All rights reserved.",
+                    "all": "All",
+                    "top_read": "Top Read",
+
                 }
             },
             tm: {
                 translation: {
+                    "turkmen": "Türkmen dili",
+                    "english": "Iňlis dili",
+                    "rus": "Rus dili",
                     "parents": "Ene-atalar",
                     "aboutus": "Biz Barada",
                     "teachers": "Terbiýeçiler",
@@ -39,17 +48,22 @@ i18n
                     "books": "Kitaplar",
                     "blogs": "Makalalar",
                     "tales": "Ertekiler",
-                    "musics": "Aýdymlar",
+                    "musics": "Audio ýazgylar",
                     "lessons": "Dersler",
                     "view": "görülen",
                     "name": "Ady",
                     "author": "Awtory",
                     "read": "Oka",
                     "copyright": "© 2024. Ähli hukuklar goralandyr.",
+                    "all": "Hemmesi",
+                    "top_read": "Iň köp okalanlar",
                 }
             },
             ru: {
                 translation: {
+                    "turkmen": "Туркменский язык",
+                    "english": "Английский язык",
+                    "rus": "Русский язык",
                     "parents": "Родители",
                     "aboutus": "О Нас",
                     "teachers": "Педагоги",
@@ -59,13 +73,15 @@ i18n
                     "books": "Книга",
                     "blogs": "Блоги",
                     "tales": "Сказки",
-                    "musics": "Музыка",
+                    "musics": "Аудиозаписи",
                     "lessons": "Урок",
                     "view": "просмотръ",
                     "name": "Имя",
                     "author": "Автор",
                     "read": "Читать",
                     "copyright": "© 2024. Все права защищены.",
+                    "all": "Все",
+                    "top_read": "Iň köp okalanlar",
                 }
             }
 

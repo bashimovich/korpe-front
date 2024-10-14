@@ -49,15 +49,15 @@ function VideoPlayer() {
   return (
     <>
         <Navbar />
-        <div class="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500">
             <div className="video_list">
                 <div className="container">
                     {/* <div className='pt-5'>
                         <input className='w-full md:w-1/2 p-2 border-l-emerald-400 focus:outline-none text-xl rounded-3xl pl-5 pr-5' type="text" />
                     </div> */}
                     <div className='pt-5 flex items-start flex-col lg:flex-row'>
-                        <div class="h-auto w-full lg:w-11/12 p-0 md:pr-5">
-                            <video src={currentVideo?.video} class="h-full w-full rounded-lg" controls autoPlay controlslist="nodownload">
+                        <div className="h-auto w-full lg:w-11/12 p-0 md:pr-5">
+                            <video src={currentVideo?.video} className="h-full w-full rounded-lg" controls autoPlay controlslist="nodownload">
                                 <source
                                     src={currentVideo?.video}
                                     type="video/mp4"

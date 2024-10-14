@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-import img from './../assets/images/b5.jpg'
+import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { axiosInstance } from '../utils/axiosInstance'
 import { useTranslation } from 'react-i18next'
@@ -11,8 +11,13 @@ function PoemsList() {
     const navigate = useNavigate()
     const [Blogs, setBlogs] = useState([])
     const [SearchInput, setSearchInput ] = useState('');
+    const [categories, setcategories] = useState([])
+    const [currentcategory, setcurrentcategory] = useState('')
     function goreadacticle(key) {
         navigate(`/kids/blogs/${key}`, { state: key })
+    }
+    function setcurrentcategoryfunc(category) {
+        setcurrentcategory(category)
     }
     function SearchBlogs(query) {
         axiosInstance
@@ -32,24 +37,70 @@ function PoemsList() {
             SearchBlogs(SearchInput)
         }
       };
+    function getblogs(currentcategory){
+        axiosInstance
+            .get(`blogs/?category=${currentcategory}`)
+            .then((res) => {
+                setBlogs(res?.data.results)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
     useEffect(() => {
         window.scroll(0,0)
         axiosInstance
-            .get(`blogs`)
+            .get(`/category/kids/blog`)
             .then((res) => {
-                setBlogs(res.data.results)
+                setcategories(res?.data.results)
             })
             .catch((err) => {
-            console.log(err);
+                console.log(err);
             });
-    }, [])
+            getblogs(currentcategory)
+    }, [currentcategory])
     if (!Blogs) {
+        return <div>Loading...</div>;
+    }
+    if (!categories) {
         return <div>Loading...</div>;
     }
   return (
     <>
         <Navbar />
-        <div class="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 min-h-[80vh]">
+            <div className='flex items-center justify-start pr-5 pl-5 pt-3  flex-nowrap overflow-auto'>
+                <p onClick={()=>{setcurrentcategoryfunc('')}}  className={`p-3 ${currentcategory === '' ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`}>
+                    {t('all')}
+                </p>
+                {
+                    categories.map((item, index)=>{return(
+                        <>
+                            {i18n.language === 'tm' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_tm),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                            {i18n.language === 'en' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_en),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                            {i18n.language === 'ru' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_ru),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                        </>
+                    )})
+                }
+            </div>
             <div className="video_list">
                 <div className="container">
                     <div className='pt-5'>
@@ -100,6 +151,7 @@ function PoemsList() {
                 </div>
             </div>
         </div>
+        <Footer />
     </>
   )
 }

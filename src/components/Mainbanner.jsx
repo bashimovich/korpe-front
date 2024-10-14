@@ -25,7 +25,7 @@ function Mainbanner() {
         <div className="main__banner pt-5">
             <div className="container grid grid-cols-1 md:grid-cols-3 gap-3">
               {Banners?.map((item, index)=>{return(
-                <img onClick={()=>{gotolink(item.url)}} className='w-full rounded-3xl hover:cursor-pointer hover:shadow-xl' src={item.image} alt="" />
+                <img key={index} onClick={()=>{gotolink(item.url)}} className='w-full rounded-3xl hover:cursor-pointer hover:shadow-xl' src={item.image} alt="" />
               )})}
             </div>
         </div>

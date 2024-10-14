@@ -36,7 +36,7 @@ function ReadBook() {
     <>
     <p className="article__title"></p>
         <Navbar />
-        <div class="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500">
             <div className="video_list">
                 <div className="container">
                     {/* <div className='pt-5'>
@@ -74,7 +74,9 @@ function ReadBook() {
                                             null
                                         )}
                             {/* <p className='text-left text-white text-2xl' dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(currentBook.description_tm),}}></p> */}
-                            <p className='text-white text-lg bg-green-600 p-5 m-3 hover:cursor-pointer hover:shadow-2xl duration-300'><a href={currentBook.ebook_file} target='_blank'>{t('read')}</a></p>
+                            <a href={currentBook.ebook_file} target='_blank'>
+                                <p className='text-white text-lg bg-green-600 p-5 m-3 hover:cursor-pointer hover:shadow-2xl duration-300'>{t('read')}</p>
+                            </a>
                         </div>
                     </div>
                 </div>

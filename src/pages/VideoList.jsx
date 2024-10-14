@@ -8,17 +8,31 @@ import { axiosInstance } from '../utils/axiosInstance'
 import { formatDistanceToNow } from 'date-fns';
 import { truncateText } from '../utils/maxCharacter';
 import { useTranslation } from 'react-i18next'
-
-
+import DOMPurify from 'dompurify';
 
 function VideoList() {
     const {t, i18n} = useTranslation()
     const navigate = useNavigate()
     const [Videos, setVideos] = useState([])
+    const [categories, setcategories] = useState([])
+    const [currentcategory, setcurrentcategory] = useState('')
     const [SearchInput, setSearchInput ] = useState('');
 
     function gotowatch(key) {
         navigate(`/kids/video/${key}`, { state: key })
+    }
+    function setcurrentcategoryfunc(category) {
+        setcurrentcategory(category)
+    }
+    function getvideos(currentcategory){
+        axiosInstance
+            .get(`videos/?category=${currentcategory}&lesson=`)
+            .then((res) => {
+                setVideos(res?.data.results)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
     function SearchVideos(query) {
         axiosInstance
@@ -40,14 +54,16 @@ function VideoList() {
       };
     useEffect(() => {
         axiosInstance
-            .get(`videos/`)
+            .get(`/category/kids/video`)
             .then((res) => {
-                setVideos(res?.data.results)
+                setcategories(res?.data.results)
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, [])
+            getvideos(currentcategory)
+    }, [currentcategory])
+
     const timeAgo = (dateString) => {
         return formatDistanceToNow(new Date(dateString), { addSuffix: true });
     };
@@ -55,10 +71,45 @@ function VideoList() {
     if (!Videos) {
         return <div>Loading...</div>;
     }
+    if (!categories) {
+        return <div>Loading...</div>;
+    }
   return (
     <>
         <Navbar />
-        <div className="bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 min-h-[80vh]">
+            <div className='flex items-center justify-start pr-5 pl-5 pt-3  flex-nowrap overflow-auto'>
+                <p onClick={()=>{setcurrentcategoryfunc('')}}  className={`p-3 ${currentcategory === '' ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`}>
+                    {t('all')}
+                </p>
+                {
+                    categories.map((item, index)=>{return(
+                        <>
+                            {i18n.language === 'tm' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_tm),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                            {i18n.language === 'en' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_en),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                            {i18n.language === 'ru' ? (
+                            <p onClick={()=>{setcurrentcategoryfunc(item.id)}} className={`p-3 ${item.id === currentcategory ? 'bg-green-500':'bg-green-300'} text-white text-sm m-1 rounded-lg hover:bg-green-600 cursor-pointer transition-all ease-linear duration-150`} dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(item?.name_ru),
+                            }}></p>
+                            ):(
+                                null
+                            )}
+                        </>
+                    )})
+                }
+            </div>
             <div className="video_list">
                 <div className="container">
                     <div className='pt-5'>
