@@ -5,7 +5,6 @@ import { axiosInstance } from '../utils/axiosInstance'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-
 function MusicList() {
     const [CurrentAudio, setCurrentAudio] = useState([])
     const [Audios, setAudios] = useState([])
@@ -17,9 +16,14 @@ function MusicList() {
     function setMforPlay(music) {
        setCurrentAudio(music) 
     }
+
     function setaudiolang(lang) {
         setlang(lang)
     }
+    function getMusics(type){
+        if(type === 'hemmesi'){
+            type = ''
+        }
       axiosInstance
         .get(`/audios/?type_audio__iexact=${type}&lang_audio__iexact=${lang}&category=&lesson=`)
         .then((res) => {
