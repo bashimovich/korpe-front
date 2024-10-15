@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-// import im from './../assets/images/tomandjerry.jpg'
-// import logo from './../assets/images/korpe-logo.png'
 import { useNavigate } from 'react-router-dom'
 import { axiosInstance } from '../utils/axiosInstance'
 import { formatDistanceToNow } from 'date-fns';
@@ -145,3 +143,4 @@ function VideoList() {
 }
 
 export default VideoList
+
