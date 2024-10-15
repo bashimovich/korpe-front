@@ -20,7 +20,7 @@ i18n
                     "search": "Search...",
                     "videos": "Vidoes",
                     "books": "Books",
-                    "blogs": "Blogs",
+                    "blogs": "News and Events",
                     "tales": "Tales",
                     "musics": "Audio recordings",
                     "lessons": "Lessons",
@@ -30,7 +30,7 @@ i18n
                     "read": "Read",
                     "copyright": "© 2024. All rights reserved.",
                     "all": "All",
-                    "top_read": "Top Read",
+                    "top_read": "Most read",
 
                 }
             },
@@ -46,7 +46,7 @@ i18n
                     "search": "Gözleg...",
                     "videos": "Wideolar",
                     "books": "Kitaplar",
-                    "blogs": "Makalalar",
+                    "blogs": "Täzelikler we wakalar",
                     "tales": "Ertekiler",
                     "musics": "Audio ýazgylar",
                     "lessons": "Dersler",
@@ -71,7 +71,7 @@ i18n
                     "search": "Поиск...",
                     "videos": "Видео",
                     "books": "Книга",
-                    "blogs": "Блоги",
+                    "blogs": "Новости и события",
                     "tales": "Сказки",
                     "musics": "Аудиозаписи",
                     "lessons": "Урок",
@@ -81,7 +81,7 @@ i18n
                     "read": "Читать",
                     "copyright": "© 2024. Все права защищены.",
                     "all": "Все",
-                    "top_read": "Iň köp okalanlar",
+                    "top_read": "Самый читаемый",
                 }
             }
 

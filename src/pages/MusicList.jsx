@@ -20,7 +20,6 @@ function MusicList() {
     function setaudiolang(lang) {
         setlang(lang)
     }
-    function getMusics(type, lang) {
       axiosInstance
         .get(`/audios/?type_audio__iexact=${type}&lang_audio__iexact=${lang}&category=&lesson=`)
         .then((res) => {
